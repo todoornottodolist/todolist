@@ -12,12 +12,17 @@ export class TasksService {
     private readonly tasksRepository: Repository<Task>,
   ) {}
 
-  async findTaskById(id: number): Promise<Task> {
+  async getTask(id: number): Promise<Task> {
     const task = await this.tasksRepository.findOneBy({ id: id });
     if (!task) {
       throw new NotFoundException(id);
     }
     return task;
+  }
+
+  async getTasks(): Promise<Task[]> {
+    const tasks = await this.tasksRepository.find();
+    return tasks;
   }
 
   async createTask(createTaskInput: CreateTaskInput): Promise<Task> {

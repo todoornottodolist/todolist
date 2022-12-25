@@ -15,6 +15,7 @@ type Mutation {
 
 type Query {
   getTask(id: Float!): Task!
+  getTasks: [Task!]!
 }
 
 type Task {

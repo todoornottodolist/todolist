@@ -11,7 +11,12 @@ export class TasksResolver {
 
   @Query(() => Task)
   async getTask(@Args('id') id: number): Promise<Task> {
-    return await this.tasksService.findTaskById(id);
+    return await this.tasksService.getTask(id);
+  }
+
+  @Query(() => [Task])
+  async getTasks(): Promise<Task[]> {
+    return await this.tasksService.getTasks();
   }
 
   @Mutation(() => Task)
