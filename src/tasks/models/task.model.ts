@@ -4,19 +4,19 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 @ObjectType()
 export class Task {
-  @Field((type) => ID)
+  @Field(() => ID)
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Field({ nullable: false })
-  @Column()
-  title: string;
+  @Field(() => String, { nullable: true })
+  @Column({ nullable: true })
+  title?: string;
 
-  @Field({ nullable: true })
-  @Column()
+  @Field(() => String, { nullable: true })
+  @Column({ nullable: true })
   desc?: string;
 
-  @Field()
+  @Field(() => Boolean)
   @Column({ default: false })
-  isDone: boolean;
+  isDone?: boolean;
 }

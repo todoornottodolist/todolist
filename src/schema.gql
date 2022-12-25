@@ -2,8 +2,14 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input CreateTaskInput {
+  desc: String
+  title: String
+}
+
 type Mutation {
-  addTask(taskInput: TaskInput!): Task!
+  addTask(createTaskInput: CreateTaskInput!): Task!
+  updateTask(updateTaskInput: UpdateTaskInput!): Task!
 }
 
 type Query {
@@ -14,10 +20,12 @@ type Task {
   desc: String
   id: ID!
   isDone: Boolean!
-  title: String!
+  title: String
 }
 
-input TaskInput {
+input UpdateTaskInput {
   desc: String
-  title: String!
+  id: ID!
+  isDone: Boolean
+  title: String
 }
