@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateTaskInput } from './dto/create-task.input';
@@ -13,7 +13,11 @@ export class TasksService {
   ) {}
 
   async findTaskById(id: number): Promise<Task> {
-    return await this.tasksRepository.findOneBy({ id: id });
+    const task = await this.tasksRepository.findOneBy({ id: id });
+    if (!task) {
+      throw new NotFoundException(id);
+    }
+    return task;
   }
 
   async createTask(createTaskInput: CreateTaskInput): Promise<Task> {
@@ -28,6 +32,9 @@ export class TasksService {
     const task = await this.tasksRepository.findOneBy({
       id: updateTaskInput.id,
     });
+    if (!task) {
+      throw new NotFoundException(updateTaskInput.id);
+    }
     if (updateTaskInput.title !== undefined) {
       task.title = updateTaskInput.title;
     }
@@ -38,5 +45,16 @@ export class TasksService {
       task.isDone = updateTaskInput.isDone;
     }
     return await this.tasksRepository.save(task);
+  }
+
+  async deleteTask(updateTaskInput: UpdateTaskInput): Promise<boolean> {
+    const task = await this.tasksRepository.findOneBy({
+      id: updateTaskInput.id,
+    });
+    if (!task) {
+      throw new NotFoundException(updateTaskInput.id);
+    }
+    await this.tasksRepository.delete(task);
+    return true;
   }
 }

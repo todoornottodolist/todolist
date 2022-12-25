@@ -1,4 +1,4 @@
-import { NotFoundException } from '@nestjs/common';
+import { ServiceUnavailableException } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CreateTaskInput } from './dto/create-task.input';
 import { UpdateTaskInput } from './dto/update-task.input';
@@ -11,11 +11,7 @@ export class TasksResolver {
 
   @Query(() => Task)
   async getTask(@Args('id') id: number): Promise<Task> {
-    const task = await this.tasksService.findTaskById(id);
-    if (!task) {
-      throw new NotFoundException(id);
-    }
-    return task;
+    return await this.tasksService.findTaskById(id);
   }
 
   @Mutation(() => Task)
@@ -23,6 +19,9 @@ export class TasksResolver {
     @Args('createTaskInput') createTaskInput: CreateTaskInput,
   ): Promise<Task> {
     const task = await this.tasksService.createTask(createTaskInput);
+    if (!task) {
+      throw new ServiceUnavailableException();
+    }
     return task;
   }
 
@@ -32,8 +31,15 @@ export class TasksResolver {
   ): Promise<Task> {
     const task = await this.tasksService.updateTask(updateTaskInput);
     if (!task) {
-      throw new NotFoundException(updateTaskInput.id);
+      throw new ServiceUnavailableException();
     }
     return task;
+  }
+
+  @Mutation(() => Boolean)
+  async deleteTask(
+    @Args('updateTaskInput') updateTaskInput: UpdateTaskInput,
+  ): Promise<boolean> {
+    return await this.tasksService.deleteTask(updateTaskInput);
   }
 }
