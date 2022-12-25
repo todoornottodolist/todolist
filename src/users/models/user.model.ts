@@ -17,5 +17,5 @@ export class User {
 
   @Field(() => String)
   @Column()
-  displayName?: string;
+  name?: string;
 }

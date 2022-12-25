@@ -15,13 +15,13 @@ export class UsersService {
       id: 1,
       email: 'email1',
       password: 'passwd1',
-      displayName: 'jyu1',
+      name: 'jyu1',
     },
     {
       id: 2,
       email: 'email2',
       password: 'passwd2',
-      displayName: 'jyu2',
+      name: 'jyu2',
     },
   ];
 
