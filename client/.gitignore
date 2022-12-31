@@ -38,5 +38,5 @@ lerna-debug.log*
 .parcel-cache/*
 
 # Yarn
-./yarn/unplugged
+./yarn/unplugged/*
 ./yarn/install-state.gz
