@@ -1,10 +1,10 @@
 import React from "react";
+import { AuthenticatedApp } from "./authenticated-app";
+
 const App = () => {
   return (
     <div>
-      <button className="p-2 rounded bg-blue-500 hover:bg-blue-600 transition">
-       Click ME 
-      </button>
+      <AuthenticatedApp />
     </div>
   );
 };
