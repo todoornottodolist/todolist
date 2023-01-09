@@ -1,27 +1,42 @@
 import React from "react"
-import trailSignOutLineSvg from '../assets/trail-sign-outline.svg'
+import { SquareSvgProps, TrailSignOutlineSvg, StarOutlineSvg, 
+  CanlendarClearOutlineSvg, AlbumsOutlineSvg, SearchOutlineSvg, SettingsOutlineSvg
+} from "../assets/sidebar-icons"
 
+interface SideBarIconProps {
+  Icon: React.FunctionComponent<SquareSvgProps>
+  size: string
+}
 
 export const SideBar = () => {
   return (
     <div className="fixed top-0 left-0 h-screen w-16 m-0 
-                    flex flex-col
+                    flex flex-col justify-between
                     text-white shadow-lg bg-white">
-        <SideBarIcon icon={<img src={trailSignOutLineSvg} />} />
+        <div className="flex flex-col">
+          <Avatar />
+          <SideBarIcon Icon={TrailSignOutlineSvg} size="32" />
+          <SideBarIcon Icon={StarOutlineSvg} size="32" />
+          <SideBarIcon Icon={CanlendarClearOutlineSvg} size="32" />
+          <SideBarIcon Icon={AlbumsOutlineSvg} size="32" />
+          <SideBarIcon Icon={SearchOutlineSvg} size="32" />
+        </div>
+        <div className="flex flex-col">
+          <SideBarIcon Icon={SettingsOutlineSvg} size="32" />
+        </div>
+
     </div>
   )
 }
 
-const Avatar = () => {
-  return (
-    <div>
-      <img src="./assets/"/>
-    </div>
-  )
-}
-
-const SideBarIcon = ({ icon }) => (
+const Avatar = () => (
   <button className="sidebar-icon group">
-    {icon}
+    <img src={require('../assets/dummy-user-avatar.png')} alt="avatar" />
+  </button>
+)
+
+const SideBarIcon = (props: SideBarIconProps) => (
+  <button className="sidebar-icon group">
+    <props.Icon size={props.size} />
   </button>
 );
