@@ -1,7 +1,7 @@
 import React from "react";
 import { AuthenticatedApp } from "./authenticated-app";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div>
       <AuthenticatedApp />

@@ -8,7 +8,7 @@ interface SideBarIconProps {
   size: string
 }
 
-export const SideBar = () => {
+export const SideBar: React.FC = () => {
   return (
     <div className="fixed top-0 left-0 h-screen w-16 m-0 
                     flex flex-col justify-between
@@ -29,13 +29,13 @@ export const SideBar = () => {
   )
 }
 
-const Avatar = () => (
+const Avatar: React.FC = () => (
   <button className="sidebar-icon group">
     <img src={require('../assets/dummy-user-avatar.png')} alt="avatar" />
   </button>
 )
 
-const SideBarIcon = (props: SideBarIconProps) => (
+const SideBarIcon: React.FC<SideBarIconProps> = (props: SideBarIconProps) => (
   <button className="sidebar-icon group">
     <props.Icon size={props.size} />
   </button>

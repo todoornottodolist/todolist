@@ -1,7 +1,11 @@
 import { SideBar } from './components/sidebar'
 import React from 'react'
 
-export const AuthenticatedApp = () => {
+export interface AuthenticatedAppProps {
+
+}
+
+export const AuthenticatedApp: React.FC<AuthenticatedAppProps>  = (props: AuthenticatedAppProps) => {
   return (
     <div className="flex">
       <SideBar />
