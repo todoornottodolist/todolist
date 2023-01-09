@@ -1,7 +1,7 @@
 import React from "react"
 import { SquareSvgProps, TrailSignOutlineSvg, StarOutlineSvg, 
   CanlendarClearOutlineSvg, AlbumsOutlineSvg, SearchOutlineSvg, SettingsOutlineSvg
-} from "../assets/sidebar-icons"
+} from "./sidebar-icons"
 
 interface SideBarIconProps {
   Icon: React.FunctionComponent<SquareSvgProps>
