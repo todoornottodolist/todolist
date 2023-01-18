@@ -1,10 +1,13 @@
 import React from "react";
-const App = () => {
+import { AuthenticatedApp } from "./AuthenticatedApp";
+import { BrowserRouter } from "react-router-dom";
+
+const App: React.FC = () => {
   return (
     <div>
-      <button className="p-2 rounded bg-blue-500 hover:bg-blue-600 transition">
-       Click ME 
-      </button>
+      <BrowserRouter>
+        <AuthenticatedApp />
+      </BrowserRouter>
     </div>
   );
 };
