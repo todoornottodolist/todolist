@@ -2,6 +2,7 @@ import React from "react"
 import { SquareSvgProps, TrailSignOutlineSvg, StarOutlineSvg, 
   CanlendarClearOutlineSvg, AlbumsOutlineSvg, SearchOutlineSvg, SettingsOutlineSvg
 } from "./sidebar-icons"
+import { Link } from "react-router-dom"
 
 interface SideBarIconProps {
   Icon: React.FunctionComponent<SquareSvgProps>
@@ -15,14 +16,26 @@ export const SideBar: React.FC = () => {
                     text-white shadow-lg bg-white">
         <div className="flex flex-col">
           <Avatar />
-          <SideBarIcon Icon={TrailSignOutlineSvg} size="32" />
-          <SideBarIcon Icon={StarOutlineSvg} size="32" />
-          <SideBarIcon Icon={CanlendarClearOutlineSvg} size="32" />
-          <SideBarIcon Icon={AlbumsOutlineSvg} size="32" />
-          <SideBarIcon Icon={SearchOutlineSvg} size="32" />
+          <Link to='/myday'>
+            <SideBarIcon Icon={TrailSignOutlineSvg} size="32" />
+          </Link>
+          <Link to='/important'>
+            <SideBarIcon Icon={StarOutlineSvg} size="32" />
+          </Link>
+          <Link to='/calendar'>
+            <SideBarIcon Icon={CanlendarClearOutlineSvg} size="32" />
+          </Link>
+          <Link to='/scheduled'>
+            <SideBarIcon Icon={AlbumsOutlineSvg} size="32" />
+          </Link>
+          <Link to='/search'>
+            <SideBarIcon Icon={SearchOutlineSvg} size="32" />
+          </Link>
         </div>
         <div className="flex flex-col">
-          <SideBarIcon Icon={SettingsOutlineSvg} size="32" />
+          <Link to='/settings'>
+            <SideBarIcon Icon={SettingsOutlineSvg} size="32" />
+          </Link>
         </div>
 
     </div>
