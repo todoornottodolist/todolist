@@ -1,12 +1,12 @@
 import { SideBar } from './components/sidebar'
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { MyDayPage } from './pages/myday-page'
-import { ImportantPage } from './pages/important-page'
-import { CalendarPage } from './pages/calendar-page'
-import { ScheduledPage } from './pages/scheduled-page'
-import { SearchPage } from './pages/search-page'
-import { SettingsPage } from './pages/setting-page'
+import { MyDayPage } from './pages/MydayPage'
+import { ImportantPage } from './pages/ImportantPage'
+import { CalendarPage } from './pages/CalendarPage'
+import { ScheduledPage } from './pages/ScheduledPage'
+import { SearchPage } from './pages/SearchPage'
+import { SettingsPage } from './pages/SettingPage'
 
 export interface AuthenticatedAppProps {
 

@@ -1,7 +1,7 @@
 import React from "react"
 import { SquareSvgProps, TrailSignOutlineSvg, StarOutlineSvg, 
   CanlendarClearOutlineSvg, AlbumsOutlineSvg, SearchOutlineSvg, SettingsOutlineSvg
-} from "./sidebar-icons"
+} from "./SidebarIcons"
 import { Link } from "react-router-dom"
 
 interface SideBarIconProps {

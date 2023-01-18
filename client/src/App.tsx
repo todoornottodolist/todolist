@@ -1,5 +1,5 @@
 import React from "react";
-import { AuthenticatedApp } from "./authenticated-app";
+import { AuthenticatedApp } from "./AuthenticatedApp";
 import { BrowserRouter } from "react-router-dom";
 
 const App: React.FC = () => {
