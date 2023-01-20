@@ -6,6 +6,10 @@ interface MyDayTitleDateProps {
   date: string
 }
 
+interface SeconDaryTitle {
+  title: string
+}
+
 export const MyDayPage = () => {
 
   return (
@@ -28,5 +32,11 @@ const MyDayTitleDate = ({ day, month, date }: MyDayTitleDateProps) => {
 
   return (
     <div className="ml-4 mt-3">{dateString}</div>
+  )
+}
+
+const SeconDaryTitle = () => {
+  return (
+    <h2 className="secondary-title">My Day</h2>
   )
 }
